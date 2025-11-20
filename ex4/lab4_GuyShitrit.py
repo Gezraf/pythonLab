@@ -52,6 +52,12 @@ def Q4(x, y, z):
 
 
 def Q5(num):
+    def max(n1, n2):
+        if n1 >= n2: 
+            return n1
+        
+        return n2
+    
     if 10 <= num <= 99: # 2 ספרות
         return (num // 10) - (num % 10)
 
@@ -60,9 +66,7 @@ def Q5(num):
         tens = num // 10 % 10
         hundreds = num // 100
 
-        if (ones > tens and ones > hundreds): return ones
-        elif (tens > ones and tens > hundreds): return tens
-        elif (hundreds > ones and hundreds > tens): return hundreds
+        return max(max(ones, tens), hundreds)
 
     elif 1000 <= num <= 9999: # 4 ספרות
         ones = num % 10
@@ -96,7 +100,15 @@ def Q6(num1, num2):
 
     tens1 = (num1 // 10) % 10
     tens2 = (num2 // 10) % 10
-    
+
+    hundreds1 = num1 // 100
+    hundreds2 = num2 // 100
+
+    if (ones1 != ones2 or ones1 != tens2 or ones1 != hundreds2) or (tens1 != ones2 or tens1 != tens2 or tens1 != hundreds2) or (hundreds1 != ones2 or hundreds1 != tens2 or hundreds1 != hundreds2):
+        return "not same digits"
+
+    return "same digits"
+
 
 
 def Q7(num):
@@ -151,4 +163,8 @@ def Q7(num):
 
 
 if __name__ == "__main__":
-    pass
+    Q1()
+    Q2()
+    Q3()
+    Q4()
+    Q5()
