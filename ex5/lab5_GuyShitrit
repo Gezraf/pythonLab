@@ -1,0 +1,60 @@
+# Assignment: 5
+# Author: Guy Shitrit, ID: 330707761
+from unicodedata import digit
+
+
+def Q1(num):
+    evenCount = 0
+
+    while (num != 0):
+        digit = num % 10
+
+        if digit % 2 == 0:
+            evenCount += 1
+
+        num //= 10
+
+    return evenCount
+
+
+def Q2(num):
+    def sum_digits(num):
+        summ = 0
+        while (num != 0):
+            digit = num % 10
+            summ += digit
+            num //= 10
+
+        return summ
+
+    while not (0 <= num <= 9):
+        num = sum_digits(num)
+
+    return num
+
+
+def Q3():
+    def is_symmetric(num):
+        reversed_num = 0
+
+        while(num != 0):
+            digit = num % 10
+            reversed_num = reversed_num * 10 + digit
+            num //= 10
+
+        return num == reversed_num
+
+    num = -1
+    maxx = -1
+
+    while (num != 0):
+        num = abs(int(input("Enter a number: "))) # מוודא שכל קלט חיובי ושלם
+
+        if is_symmetric(num) and num > maxx:
+            maxx = num
+
+    return maxx
+    
+
+
+
