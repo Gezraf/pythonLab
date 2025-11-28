@@ -55,8 +55,30 @@ def Q3():
     return maxx
 
 
-def Q4():
-    pass
+def Q4(n1, n2):
+    n1 = abs(n1)
+    n2 = abs(n2)
+
+    for d in range(10):
+        count_n1 = 0
+        count_n2 = 0
+
+        temp = n1
+        while temp > 0:
+            if temp % 10 == d:
+                count_n1 += 1
+            temp //= 10
+
+        temp = n2
+        while temp > 0:
+            if temp % 10 == d:
+                count_n2 += 1
+            temp //= 10
+
+        if count_n1 != count_n2:
+            return False
+
+    return True
 
 def Q5():
     pass
@@ -71,5 +93,3 @@ def Q6(num):
             return False
 
     return True
-
-
