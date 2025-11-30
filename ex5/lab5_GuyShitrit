@@ -14,7 +14,6 @@ def Q1(num):
 
     return evenCount
 
-
 def Q2(num):
     def sum_digits(num): # פונקציה שמחזירה את סכום ספרות מספר כלשהו
         summ = 0
@@ -29,7 +28,6 @@ def Q2(num):
         num = sum_digits(num)
 
     return num
-
 
 def Q3():
     def is_symmetric(num):
@@ -52,8 +50,7 @@ def Q3():
         if is_symmetric(num) and num > maxx:
             maxx = num
 
-    return maxx
-
+    return maxx # הפעם בשאלה כתוב להחזיר ערך ולא להדפיס
 
 def Q4(n1, n2):
     n1 = abs(n1)
@@ -81,7 +78,34 @@ def Q4(n1, n2):
     return True
 
 def Q5():
-    pass
+    num1 = float(input("Enter a number: "))
+    num2 = num1 - 1 # ערך זבל שבחיים לא שווה לערך הראשון כדי שייכנס ללולאה
+    first_num = num1 # המספר הראשון שנקלט
+
+    ASCENDING, DESCENDING = 0, 0
+
+    while True:
+        num1 = float(input("Enter a number: "))
+
+        if num1 == first_num: # אם זה שווה למספר הראשון, צא מהלולאה מוקדם
+            break
+
+        num2 = float(input("Enter a number: "))
+
+        if num2 > num1:
+            ASCENDING = 1
+        if num2 < num1:
+            DESCENDING = 1
+
+        if num2 == first_num:  # אם המספר השני שווה לראשון, צא מהלולאה
+            break
+
+    if ASCENDING and DESCENDING:
+        print("Not ascending and not descending")
+    elif ASCENDING:
+        print("Ascending")
+    elif DESCENDING:
+        print("Descending")
 
 
 def Q6(num):
